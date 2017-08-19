@@ -1,7 +1,7 @@
 # Project specific:
 
 read_serial/secrets.json
-read_serial/database_info.json
+read_serial/database_info.py
 read_serial/env
 
 # ************************** Borrowed from github ***************************:

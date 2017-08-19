@@ -1,0 +1,19 @@
+{
+  "name": "komplexol",
+  "version": "1.0.0",
+  "description": "komplex beer",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/axelinternet/komplexol.git"
+  },
+  "author": "axelinternet",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/axelinternet/komplexol/issues"
+  },
+  "homepage": "https://github.com/axelinternet/komplexol#readme"
+}
