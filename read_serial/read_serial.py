@@ -1,5 +1,4 @@
 import serial
-import requests
 import time
 import json
 import firebase_admin
@@ -18,8 +17,8 @@ def detect_serial_input():
     with serial.Serial('/dev/ttyACM0', 9600) as ser:
         timeout = []
         while True:
-            s = ser.readline() #Change this to a better format. Read stream and detect when UI string comes.
-            if (s.decode()[0:6] != "Card U"): #Detect card UID from exampel GetInfo program.
+            s = ser.readline() #TODO: Refactor so not to use readline()
+            if (s.decode()[0:6] != "Card U"): 
                 s = ser.readline()
             else: 
                 uid = s.decode()[10:21]
