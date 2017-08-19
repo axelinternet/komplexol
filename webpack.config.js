@@ -14,10 +14,15 @@ module.exports = {
 	      use: {
 	        loader: 'babel-loader',
 	        options: {
-	          presets: ['env']
+	          presets: ['env', 'es2016']
 	        }
 	      }
 	    }
 	  ]
-	}
+	},
+	resolve: {
+    alias: {
+      'vue$': 'vue/dist/vue.esm.js' // 'vue/dist/vue.common.js' for webpack 1
+    }
+  }
 }

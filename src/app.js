@@ -1,5 +1,10 @@
-const numbers = [1,2,3,4,5,6,7,8,9]
+import Vue from 'vue'
+import myComponent from './components/my-component.vue'
+import videoPlayer from './components/video-player.vue'
 
-console.log(numbers.filter((num) => {
-	return num == 3
-}))
+const app = new Vue({
+  el: '#app',
+  data: {
+    message: 'nejtack'
+  }
+})
