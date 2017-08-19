@@ -23,3 +23,6 @@ Then copy the firebase admin sdk secrets file to ```secrets.json``` and run:
     $ python read_serial.py
 ```
 
+## Komplex viewer
+
+Put video files in videos/
