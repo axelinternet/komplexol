@@ -1,0 +1,18 @@
+{
+	"videoClass": "japan world cup",
+	"videos": [
+		{
+			"cup": 1,
+			"race": 2,
+			"winner": 6,
+			"runner-up": 1,
+			"video-file": "c1r2.mp4" 
+		}, {
+			"cup": 1,
+			"race": 3,
+			"winner": 4,
+			"runner-up": 3,
+			"video-file": "c3r3.mp4" 
+		}
+	]
+}

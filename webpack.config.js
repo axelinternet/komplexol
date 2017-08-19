@@ -14,7 +14,7 @@ module.exports = {
 	      use: {
 	        loader: 'babel-loader',
 	        options: {
-	          presets: ['env', 'es2016']
+	          presets: ['es2016']
 	        }
 	      }
 	    }
