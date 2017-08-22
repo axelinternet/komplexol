@@ -33,6 +33,13 @@ const beerViewer = {
  	},
  	firebase: {
  		beers: beerRef
+ 	},
+ 	methods: {
+ 		listen: () => {
+ 			this.$firebaseRefs.beers.on('value', function(snapshot) {
+      	console.log(snapshot.val())
+    	})
+    }
  	}
 }
 
