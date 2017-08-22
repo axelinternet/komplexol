@@ -7,7 +7,6 @@ const randomVideoNumber = Math.round(Math.random())
 
 const videoArray = videos.videos.map((vid) => vid['video-file'])
 
-console.log(videoArray)
 const videoPlayer = {
 	template: videoPlayerTemplate,
 	data: () => {

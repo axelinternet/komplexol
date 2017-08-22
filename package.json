@@ -31,6 +31,8 @@
     "webpack-dev-server": "^2.7.1"
   },
   "dependencies": {
-    "vue": "^2.4.2"
+    "firebase": "^4.3.0",
+    "vue": "^2.4.2",
+    "vuefire": "^1.4.3"
   }
 }

@@ -1,14 +1,16 @@
 import Vue from 'vue'
 import videoPlayer from './components/video-player.vue'
+import beerViewer from './components/beer-viewer.vue'
 
 const app = new Vue({
   el: '#app',
   components: {
-  	'video-player': videoPlayer
+  	'video-player': videoPlayer,
+  	'beer-viewer': beerViewer
   },
   data: {
     message: 'nejtack',
-   	playedVideos: []
+   	playedVideos: [],
   },
-  template: '<div><h1>{{ message }}</h1><video-player></video-player></div>'
+  template: '<div><beer-viewer></beer-viewer></div>'
 })
