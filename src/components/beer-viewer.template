@@ -1,6 +1,17 @@
-<div>
-  <h1> lol </h1>
-  <div v-for="beer in beers">
-    <li>Time: {{ beer.time }}, ID: {{ beer.uid }}  </li>
+<div id="beerHolder">
+
+  <div id="beerLiquid" v-bind:style="{height: beerHeight}">
   </div>
+
+  <div id="beerScore">
+
+    <div v-for="bi in topTen">
+      <li>{{ bi.uid }}: {{bi.amount}} </li>
+    </div>
+
+  </div>
+
+  <!-- <div v-for="beer in beers">
+    <li>Time: {{ beer.time }}, ID: {{ beer.uid }}  </li>
+  </div> -->
 </div>
