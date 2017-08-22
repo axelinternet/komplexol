@@ -1,0 +1,5 @@
+<div>
+  <video :src=videoSrc :width=width preload v-bind:autoplay=isAutoPlayed></video>
+  <p><b>Winner:</b> {{ winner }}</p>
+  <p><b>Runner up:</b> {{ runnerUp }}</p>
+</div>

@@ -1,19 +1,19 @@
 import Vue from 'vue'
 import videos from '../videos.json'
-
-let templateString = '<div>'
-templateString = templateString.concat('<video :src=videoSrc :width=width preload v-bind:autoplay=isAutoPlayed></video>',
-	'<p><b>Winner:</b> {{ winner }}</p>',
-	'<p><b>Runner up:</b> {{ runnerUp }}</p>',
-	'</div>')
+import videoPlayerTemplate from './video-player.template'
 
 const randomVideoNumber = Math.round(Math.random())
+//const videoArray = ['c1r2.mp4', 'c1r3.mp4']
 
+const videoArray = videos.videos.map((vid) => vid['video-file'])
+
+console.log(videoArray)
 const videoPlayer = {
-	template: templateString,
+	template: videoPlayerTemplate,
 	data: () => {
 		return {
-			videoSrc: '../video/' + videos.videos[randomVideoNumber]['video-file'],
+			//videoSrc: '../video/' + videos.videos[randomVideoNumber]['video-file'],
+			videoSrc: videoArray[randomVideoNumber],
 			width: 768,
 			isAutoPlayed: false, //TODO: Set to true later in dev cycle.
 			winner: videos.videos[randomVideoNumber]["winner"],
@@ -21,5 +21,4 @@ const videoPlayer = {
 		}
 	}
 }
-
 export default videoPlayer

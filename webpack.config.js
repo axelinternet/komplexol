@@ -17,8 +17,23 @@ module.exports = {
 	          presets: ['es2016']
 	        }
 	      }
-	    }
-	  ]
+	    },
+	    {
+        test: /\.(mp4)$/, // Add more file-types in new rule if required.
+        use: [
+          {
+            loader: 'file-loader',
+            options: {
+            	name: '[name].[ext]',
+            	context: 'video/'
+            }  
+          }
+        ]
+      },
+      {
+        test: /\.template$/,
+        use: 'raw-loader'
+      }]
 	},
 	resolve: {
     alias: {
