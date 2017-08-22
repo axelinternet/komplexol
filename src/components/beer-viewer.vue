@@ -29,9 +29,7 @@ const beerViewer = {
  	data: function() {
     return {
  			header: "Cool360",
-      beerHeight: '0%',
-      beerCheckInsObject: {},
-      topTen: []
+      beerCheckInsObject: {}
  		}
  	},
   firebase: {
@@ -42,29 +40,7 @@ const beerViewer = {
       // optionally provide the cancelCallback
       cancelCallback: function () {},
       // this is called once the data has been retrieved from firebase
-      readyCallback: function (banana) {
-      	const snap = this.$firebaseRefs.beers.on('value', function(snapshot) {
-          // this.data.beerCheckIns = snapshot.val();
-      		// console.log(snapshot.val())
-          const snip = snapshot.val();
-          return snip
-      	})
-        this.beerCheckInsObject = snap(banana)
-        //console.log(this.beerCheckIns)
-
-        // Konvertera Object till Array, räkna förekomst. .
-        const checkIns = this.beerCheckInsObject
-        const checkInsArr = Object.keys(checkIns).map(function (key) {
-          return checkIns[key];
-        });
-
-        const totalAmountBeers = 500;
-        const amountBeers = checkInsArr.length;
-        // const amountBeers = 250;
-        const beerPerPixel = 100/totalAmountBeers;
-
-        this.beerHeight = Math.round(amountBeers*beerPerPixel) + "%";
-
+      readyCallback: function () {
       }
     }
  	},
@@ -83,14 +59,13 @@ const beerViewer = {
         }
         result[i.uid] +=1;
       });
-      //
+
       const newArrayA = Object.keys(result).map(function(k) {
-        // const o={};
-        // o[k] = result[k];
+
         const o = {'uid':k, 'amount':result[k]}
         return o;
       })
-      //
+
       newArrayA.sort(function(a, b) {
         return b.amount - a.amount;
       });
@@ -98,6 +73,15 @@ const beerViewer = {
       var ar = newArrayA.slice(0, 10);
 
       return ar
+
+    },
+    beerHeight: function() {
+
+      const totalAmountBeers = 500;
+      var amountBeers = Object.keys(this.beers).length;
+      const beerPerPixel = 100/totalAmountBeers;
+      const beerHeight = Math.round(amountBeers*beerPerPixel) + "%";
+      return beerHeight
     }
   }
 }
