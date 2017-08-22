@@ -4,14 +4,15 @@
   </div>
 
   <div id="beerScore">
+    <!-- {{topBeers}} -->
 
-    <div v-for="bi in topTen">
+    <div v-for="bi in topBeers">
       <li>{{ bi.uid }}: {{bi.amount}} </li>
     </div>
 
   </div>
 
-  <!-- <div v-for="beer in beers">
+  <div v-for="beer in beers">
     <li>Time: {{ beer.time }}, ID: {{ beer.uid }}  </li>
-  </div> -->
+  </div>
 </div>

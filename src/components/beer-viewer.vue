@@ -26,8 +26,8 @@ Vue.use(VueFire)
 
 const beerViewer = {
 	template: beerViewerTemplate,
- 	data: () => {
- 		return {
+ 	data: function() {
+    return {
  			header: "Cool360",
       beerHeight: '0%',
       beerCheckInsObject: {},
@@ -38,7 +38,7 @@ const beerViewer = {
  		 beers: {
       source: beerRef,
       // optionally bind as an object
-      asObject: false,
+      asObject: true,
       // optionally provide the cancelCallback
       cancelCallback: function () {},
       // this is called once the data has been retrieved from firebase
@@ -61,64 +61,44 @@ const beerViewer = {
         const totalAmountBeers = 500;
         const amountBeers = checkInsArr.length;
         // const amountBeers = 250;
-        const beerPerPixel = 100/totalAmountBeers * 10;
+        const beerPerPixel = 100/totalAmountBeers;
 
         this.beerHeight = Math.round(amountBeers*beerPerPixel) + "%";
-
-        const result = {};
-        checkInsArr.forEach(function(i) {
-          if (!result.hasOwnProperty(i.uid)) {
-            result[i.uid] = 0;
-          }
-          result[i.uid] +=1;
-        });
-
-        const newArrayA = Object.keys(result).map(function(k) {
-          // const o={};
-          // o[k] = result[k];
-          const o = {'uid':k, 'amount':result[k]}
-          return o;
-        })
-
-        newArrayA.sort(function(a, b) {
-          return b.amount - a.amount;
-        });
-
-        this.topTen = newArrayA
-        console.log(this.topTen)
 
       }
     }
  	},
-  updated: function() {
+  computed: {
+    topBeers: function() {
 
-      // // Konvertera Object till Array, räkna förekomst. .
-      // const checkIns = this.beerCheckInsObject
-      // const checkInsArr = Object.keys(checkIns).map(function (key) {
-      //   return checkIns[key];
-      // });
+      const checkIns = this.beers
+      const checkInsArr = Object.keys(checkIns).map(function (key) {
+        return checkIns[key];
+      });
+
+      const result = {};
+      checkInsArr.forEach(function(i) {
+        if (!result.hasOwnProperty(i.uid)) {
+          result[i.uid] = 0;
+        }
+        result[i.uid] +=1;
+      });
       //
-      // const result = {};
-      // checkInsArr.forEach(function(i) {
-      //   if (!result.hasOwnProperty(i.uid)) {
-      //     result[i.uid] = 0;
-      //   }
-      //   result[i.uid] +=1;
-      // });
+      const newArrayA = Object.keys(result).map(function(k) {
+        // const o={};
+        // o[k] = result[k];
+        const o = {'uid':k, 'amount':result[k]}
+        return o;
+      })
       //
-      // const newArrayA = Object.keys(result).map(function(k) {
-      //   // const o={};
-      //   // o[k] = result[k];
-      //   const o = {'uid':k, 'amount':result[k]}
-      //   return o;
-      // })
-      //
-      // newArrayA.sort(function(a, b) {
-      //   return b.amount - a.amount;
-      // });
-      //
-      // this.topTen = newArrayA
-      // console.log(this.topTen)
+      newArrayA.sort(function(a, b) {
+        return b.amount - a.amount;
+      });
+
+      var ar = newArrayA.slice(0, 10);
+
+      return ar
+    }
   }
 }
 
