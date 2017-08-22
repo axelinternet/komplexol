@@ -25,14 +25,63 @@ body, html {
 	position: absolute;
 	left:0px;
 	bottom:0px;
+	transition: 2s;
 }
 
 #beerScore {
 	position: absolute;
-	left:25%;
-	top:25%;
-	margin: 0px 0px 0px 0px;
+	left:50%;
+	top:50%;
+	margin: -300px 0px 0px -350px;
 	background-color: red;
-	width:50%;
-	height:50%;
+	width:700px;
+	height:700px;
+}
+
+.highScore {
+	width:700px;
+	height:70px;
+	background-color: orange;
+	display: block;
+	margin-top:10px;
+}
+
+.highScore:nth-child(4) {
+	margin-top:120px;
+}
+
+.highScore:nth-child(1) {
+	background-color: blue;
+	position: absolute;
+	z-index: 100;
+	left:225px;
+	top:-125px;
+	width:250px;
+	height:250px;
+	border-radius:100%;
+	margin-top:0px;
+}
+
+.highScore:nth-child(2) {
+	background-color: green;
+	position: absolute;
+	z-index: 99;
+	left:60px;
+	top:-75px;
+	width:200px;
+	height:200px;
+	border-radius:100%;
+	margin-top:0px;
+}
+
+.highScore:nth-child(3) {
+	background-color: yellow;
+	position: absolute;
+	z-index: 99;
+	right:60px;
+	top:-75px;
+	width:200px;
+	height:200px;
+	border-radius:100%;
+	margin-top:0px;
 }

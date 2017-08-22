@@ -6,8 +6,8 @@
   <div id="beerScore">
     <!-- {{topBeers}} -->
 
-    <div v-for="bi in topBeers">
-      <li>{{ bi.uid }}: {{bi.amount}} </li>
+    <div v-for="bi in topBeers" class="highScore">
+      <div>{{ bi.uid }}: {{bi.amount}}</div>
     </div>
 
   </div>
