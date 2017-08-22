@@ -1,4 +1,5 @@
 <div>
+  <h1> lol </h1>
   <div v-for="beer in beers">
     <li>Time: {{ beer.time }}, ID: {{ beer.uid }}  </li>
   </div>

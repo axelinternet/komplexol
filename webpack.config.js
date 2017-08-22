@@ -18,6 +18,13 @@ module.exports = {
 	        }
 	      }
 	    },
+	   	{
+			test: /\.css$/,
+			use: [
+				'style-loader',
+				'css-loader'
+				]
+			},
 	    {
         test: /\.(mp4)$/, // Add more file-types in new rule if required.
         use: [
