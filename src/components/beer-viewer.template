@@ -1,13 +1,42 @@
+
+
 <div id="beerHolder">
 
+
   <div id="beerLiquid" v-bind:style="{height: beerHeight}">
+      <div id="particleJS-container"></div>
   </div>
 
   <div id="beerScore">
-    <!-- {{topBeers}} -->
 
-    <div v-for="bi in topBeers" class="highScore">
-      <div>{{ bi.uid }}: {{bi.amount}}</div>
+    <div v-for="(bi,index) in topBeers" class="highScore">
+
+      <div v-if="index < 3">
+
+        <div class="scoreNumber">{{index+1}}</div>
+
+        <div v-if="index ==0">
+          <div class="scoreNameBig">{{ bi.name }}</div>
+          <div class="scoreAmountBig">{{bi.amount}}</div>
+        </div>
+
+        <div v-else>
+          <div class="scoreName">{{ bi.name }}</div>
+          <div class="scoreAmount">{{bi.amount}}</div>
+        </div>
+
+
+
+      </div>
+
+      <div v-else-if="index >= 3">
+
+        <div class="scoreNumberSmall">{{index+1}}.</div>
+        <div class="scoreNameSmall">{{ bi.name }}</div>
+        <div class="scoreAmountSmall">{{bi.amount}}</div>
+
+      </div>
+
     </div>
 
   </div>
