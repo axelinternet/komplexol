@@ -15,7 +15,7 @@ const getRandomVideo = function() {
 	return selectedVideo
 }
 
-const worldCupHolder = Vue.component('worldcup-holder', {
+const worldCupHolder = {
  	data: function () {
  		return {
  			winners: [],
@@ -27,6 +27,6 @@ const worldCupHolder = Vue.component('worldcup-holder', {
  		'winner-viewer': winnerViewer
  	},
  	template: worldCupHolderTemplate
-})
+}
 
 export default worldCupHolder
