@@ -1,0 +1,11 @@
+<div>
+  <div class="winner-container">
+      <div v-for="member in winningTeam">
+        <winner-card :user="member"></winner-card>
+      </div>
+    </ul>
+  </div>
+  <div class="runner-up-container">
+    <h1>Runner up: {{runnerUpTeam}}</h1>
+  </div>
+</div>
