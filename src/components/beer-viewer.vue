@@ -14,13 +14,7 @@ firebase.auth().signInWithEmailAndPassword(email, password).catch(function(error
 });
 
 const beerRef = firebase.database().ref('path/')
-
-const getDatabaseSnapshot = function() {
-	firebase.database().ref('/path').once('value').then(function(snapshot) {
-	  const value = snapshot.val()
-	  console.log('VALUE: ', value)
-	});
-}
+const drinkerRef = firebase.database().ref('drinker/')
 
 Vue.use(VueFire)
 
@@ -33,16 +27,8 @@ const beerViewer = {
  		}
  	},
   firebase: {
- 		 beers: {
-      source: beerRef,
-      // optionally bind as an object
-      asObject: true,
-      // optionally provide the cancelCallback
-      cancelCallback: function () {},
-      // this is called once the data has been retrieved from firebase
-      readyCallback: function () {
-      }
-    }
+ 		beers: beerRef,
+    drinkers: drinkerRef
  	},
   computed: {
     topBeers: function() {
@@ -82,8 +68,24 @@ const beerViewer = {
       const beerPerPixel = 100/totalAmountBeers;
       const beerHeight = Math.round(amountBeers*beerPerPixel) + "%";
       return beerHeight
+    }, 
+    realName: function(bi) {
+      console.log("BI",bi)
+      return "Lennart"
+    }
+  },
+  methods: {
+    setLameNames: function() {
+      console.log("YAYA")
+      for (let items in this.beers) {
+          const uid = this.beers[items].uid
+          const names = ["Nisse", "Bengt", "Olof", "Anders", "Tommy", "Eva", "Marcus", "Axel", "Nisse"]
+          console.log(this.$firebaseRefs.drinkers.child(uid))
+          this.$firebaseRefs.drinkers.child(uid).child("name").set(names[Math.round(Math.random()) * 8])
+      }
     }
   }
+
 }
 
 export default beerViewer

@@ -1,5 +1,4 @@
 <div id="beerHolder">
-
   <div id="beerLiquid" v-bind:style="{height: beerHeight}">
   </div>
 
@@ -7,12 +6,8 @@
     <!-- {{topBeers}} -->
 
     <div v-for="bi in topBeers" class="highScore">
-      <div>{{ bi.uid }}: {{bi.amount}}</div>
+      <div>{{ realName }}: {{bi.amount}}</div>
     </div>
 
   </div>
-
-  <!-- <div v-for="beer in beers">
-    <li>Time: {{ beer.time }}, ID: {{ beer.uid }}  </li>
-  </div> -->
 </div>
