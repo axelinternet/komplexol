@@ -1,5 +1,6 @@
 import Vue from 'vue'
 import beerViewerTemplate from './beer-viewer.template'
+import bubble from './bubble.vue'
 import * as firebase from "firebase"
 import * as VueFire from "vuefire"
 import config from '../../firebase_secrets.js'
@@ -26,12 +27,16 @@ const getDatabaseSnapshot = function() {
 Vue.use(VueFire)
 
 const beerViewer = {
+  components: {
+    "bubble": bubble
+
+  },
 	template: beerViewerTemplate,
  	data: function() {
     return {
  			header: "Cool360",
       beerCheckInsObject: {},
-      foamArr: [51, 12, 42, 29, 14, 22, 50, 27, 39, 4, 16, 2, 15, 5, 24, 42, 3, 28, 19, 20, 47, 22, 12, 45, 8, 40, 20, 27, 43, 8, 2, 16, 46, 11, 34, 29, 41, 6, 20, 30, 20, 22, 31, 41, 29, 42, 17, 30, 19, 4]
+      foamArr: [51, 12, 42, 29, 14, 22, 50, 27, 39, 4, 16, 2, 15, 5, 24, 42, 3, 28, 19, 20, 47, 22, 12, 45, 8, 40, 20, 27, 43, 8, 2, 16, 46, 11, 34, 29, 41, 6, 20, 30, 20, 22, 31, 41, 29, 42, 17, 30, 19,51, 12, 42, 29, 14, 22, 50, 27, 39, 4, 16, 2, 15, 5, 24, 42, 3, 28, 19, 20, 47, 22, 12, 45, 8, 40, 20, 27, 43, 8, 2, 16, 46, 11, 34, 29, 41, 6, 20, 30, 20, 22, 31, 41, 29, 42, 17, 30, 19,51, 12, 42, 29, 14, 22, 50, 27, 39, 4, 16, 2, 15, 5, 24, 42, 3, 28, 19, 20, 47, 22, 12, 45, 8, 40, 20, 27, 43, 8, 2, 16, 46, 11, 34, 29, 41, 6, 20, 30, 20, 22, 31, 41, 29, 42, 17, 30, 19,51, 12, 42, 29, 14, 22, 50, 27, 39, 4, 16, 2, 15, 5, 24, 42, 3, 28, 19, 20, 47, 22, 12, 45, 8, 40, 20, 27, 43, 8, 2, 16, 46, 11, 34, 29, 41, 6, 20, 30, 20, 22, 31, 41, 29, 42, 17, 30, 19, 4]
  		}
  	},
   mounted () {
@@ -157,11 +162,6 @@ const beerViewer = {
 
       const drinkArray = this.drinkers
 
-      for(var i in drinkArray) {
-          // console.log(drinkArray[i][".key"])
-          // console.log(Object.keys(drinkArray[i]))
-      }
-
       const checkIns = this.beers
       const checkInsArr = Object.keys(checkIns).map(function (key) {
         return checkIns[key];
@@ -216,14 +216,6 @@ const beerViewer = {
     },
     names: function() {
       return this.drinker
-    },
-    foam: function() {
-      const foamClouds = []
-      for(var i=0; i<50;i++) {
-        var numb = Math.round((Math.random() * 50) + 1)
-        foamClouds.push(numb)
-      }
-      console.log(foamClouds)
     }
   }
 }
