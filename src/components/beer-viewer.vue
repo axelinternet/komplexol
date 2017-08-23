@@ -30,7 +30,8 @@ const beerViewer = {
  	data: function() {
     return {
  			header: "Cool360",
-      beerCheckInsObject: {}
+      beerCheckInsObject: {},
+      foamArr: [51, 12, 42, 29, 14, 22, 50, 27, 39, 4, 16, 2, 15, 5, 24, 42, 3, 28, 19, 20, 47, 22, 12, 45, 8, 40, 20, 27, 43, 8, 2, 16, 46, 11, 34, 29, 41, 6, 20, 30, 20, 22, 31, 41, 29, 42, 17, 30, 19, 4]
  		}
  	},
   mounted () {
@@ -50,7 +51,7 @@ const beerViewer = {
               }
             },
             "color": {
-              "value": "#ff0000"
+              "value": "#fff"
             },
             "shape": {
               "type": "circle",
@@ -83,7 +84,7 @@ const beerViewer = {
               }
             },
             "line_linked": {
-              "enable": true,
+              "enable": false,
               "distance": 150,
               "color": "#ff0000",
               "opacity": 0.4,
@@ -92,7 +93,7 @@ const beerViewer = {
             "move": {
               "enable": true,
               "speed": 6,
-              "direction": "none",
+              "direction": "top",
               "random": false,
               "straight": false,
               "out_mode": "out",
@@ -108,11 +109,11 @@ const beerViewer = {
             "detect_on": "canvas",
             "events": {
               "onhover": {
-                "enable": true,
+                "enable": false,
                 "mode": "grab"
               },
               "onclick": {
-                "enable": true,
+                "enable": false,
                 "mode": "push"
               },
               "resize": true
@@ -215,6 +216,14 @@ const beerViewer = {
     },
     names: function() {
       return this.drinker
+    },
+    foam: function() {
+      const foamClouds = []
+      for(var i=0; i<50;i++) {
+        var numb = Math.round((Math.random() * 50) + 1)
+        foamClouds.push(numb)
+      }
+      console.log(foamClouds)
     }
   }
 }
