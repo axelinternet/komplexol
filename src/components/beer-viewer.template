@@ -4,11 +4,13 @@
 
 
   <div id="beerLiquid" v-bind:style="{height: beerHeight}">
-    <div v-for="f in foamArr">
-      <div class="foamBit">
-        {{f}}
+    <div id="foamHolder">
+      <div v-for="(f,ind) in foamArr">
+        <bubble :index="ind"></bubble>
+        <!-- <div class="foamBit" v-bind:style="foamDisplace">
+        </div> -->
       </div>
-    </div>
+  </div>
       <div id="particleJS-container"></div>
   </div>
 
