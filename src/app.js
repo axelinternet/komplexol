@@ -1,9 +1,10 @@
 import Vue from 'vue'
+// Why does this not play nice if loaded in component?
+import particlesJS from 'particles.js' 
 import beerViewer from './components/beer-viewer.vue'
 import worldCupHolder from './components/worldcup-holder.vue'
+import appTemplate from './components/app.template'
 import './style.css'
-import particlesJS from 'particles.js'
-
 
 const app = new Vue({
   el: '#app',
@@ -12,8 +13,7 @@ const app = new Vue({
   	'beer-viewer': beerViewer
   },
   data: {
-    message: 'nejtack',
-   	playedVideos: [],
+    currentGame: 'beer'
   },
-  template: '<div><beer-viewer></beer-viewer></div>'
+  template: appTemplate
 })
