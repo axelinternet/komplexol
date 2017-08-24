@@ -34,6 +34,7 @@
   },
   "dependencies": {
     "firebase": "^4.3.0",
+    "particles.js": "^2.0.0",
     "vue": "^2.4.2",
     "vuefire": "^1.4.3"
   }
