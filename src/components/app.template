@@ -1,8 +1,8 @@
-<div class="candidates">
+<div class="candidates" >
   <div v-if="currentGame === 'beer'">
-    <beer-viewer></beer-viewer>
+    <beer-viewer v-on:switchGame="switchGame"></beer-viewer>
   </div>
-  <div v-if="currentGame === 'worldcup'">
-  <worldcup-holder></worldcup-holder>
+  <div v-if="currentGame === 'worldcup'" >
+  <worldcup-holder v-on:switchGame="switchGame"></worldcup-holder>
   </div>
 </div>

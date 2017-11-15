@@ -26,7 +26,13 @@ const worldCupHolder = {
  		'video-player': videoPlayer,
  		'winner-viewer': winnerViewer
  	},
- 	template: worldCupHolderTemplate
+ 	template: worldCupHolderTemplate,
+ 	methods: {
+    changeGame() {
+      console.log("CLICKETYCLASCKCK")
+      this.$emit('switchGame')
+    }
+  }
 }
 
 export default worldCupHolder

@@ -1,4 +1,5 @@
 <div>
   <video-player :videoSrc="video.race" :winner="video.winner" :runnerUp="video.runnerUp" :isAutoPlayed="false"></video-player>
   <winner-viewer :winner="video.winner" :runnerUp="video.runnerUp"></winner-viewer>
+  <button id="change-game" v-on:click="changeGame">Nisse</button>
 </div>

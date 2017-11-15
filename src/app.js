@@ -13,7 +13,13 @@ const app = new Vue({
   	'beer-viewer': beerViewer
   },
   data: {
-    currentGame: 'beer'
+    currentGame: 'worldcup'
   },
-  template: appTemplate
+  template: appTemplate,
+  methods: {
+    switchGame() {
+      console.log("GOT IT")
+      this.currentGame='beer'
+    }
+  }
 })

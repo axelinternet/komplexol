@@ -1,6 +1,12 @@
 
 # KomplexÖl
 
+KomplexÖl is a silly party game to be enjoyed on a projector. It features a horse racing game where the participants are in teams with each horse. It also features a RFID-based highscore.
+
+## Komplex viewer
+
+To set up put video files in videos/
+
 ## read_serial
 
 Read serial data and send to firebase
@@ -23,6 +29,3 @@ Then copy the firebase admin sdk secrets file to ```secrets.json``` and run:
     $ python read_serial.py
 ```
 
-## Komplex viewer
-
-Put video files in videos/
